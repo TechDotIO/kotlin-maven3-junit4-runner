@@ -23,4 +23,4 @@ shopt -s extglob
 rm -rf !("jars")
 
 # Clean .m2 directory
-rm -rf ${HOME}/.m2
+find ${HOME}/.m2 -mindepth 1 -delete
