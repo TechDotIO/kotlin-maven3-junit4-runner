@@ -33,3 +33,4 @@ if [ $compilationExitCode -eq 0 ]; then
 else
 	exit $compilationExitCode
 fi
+sleep 1000
