@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "=> Building the junit runner jar file"
-#docker run \
-#    -v $(pwd)/maven3-junit4-runner:/tmp/maven3-junit4-runner \
-#    -w /tmp/maven3-junit4-runner \
-#    maven:3-alpine \
-#    mvn package
+docker run \
+    -v $(pwd)/maven3-junit4-runner:/tmp/maven3-junit4-runner \
+    -w /tmp/maven3-junit4-runner \
+    maven:3-alpine \
+    mvn package
