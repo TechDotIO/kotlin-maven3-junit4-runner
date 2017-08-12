@@ -24,7 +24,7 @@ fi
 
 cd ${SOURCE_DIR} || echo "Could not find directory ${SOURCE_DIR}" && exit 1
 
-find * -name "*.kt" -print0 | xargs -0 /opt/techio/k2/K2JVMCompiler org.jetbrains.kotlin.cli.jvm.K2JVMCompiler -no-stdlib -cp "$classpath" -d "${WORKSPACE_DIR}"
+find * -name "*.kt" -print0 | xargs -0 /opt/techio/k2/K2JVMCompiler org.jetbrains.kotlin.cli.jvm.K2JVMCompiler -no-stdlib -jdk-home /docker-java-home -cp "$classpath" -d "${WORKSPACE_DIR}"
 compilationExitCode=$?
 
 if [ $compilationExitCode -eq 0 ]; then
