@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "TECHIO> terminal"
 # Can be invoked as:
 # 		xxx.sh SOURCE_DIR TestClass
 # 		xxx.sh SOURCE_DIR TestClass#testMethod
