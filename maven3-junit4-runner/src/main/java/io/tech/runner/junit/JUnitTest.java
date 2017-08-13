@@ -12,6 +12,8 @@ class JUnitTest {
      * This captures ClassName or ClassName#methodName (e.g. TestBoid#testUnique)
      */
     private static final Pattern COMMAND_PATTERN = Pattern.compile("(?<class>[^#]+)(?:#(?<method>[^#]+))?");
+    
+    private String stackStop = null;
 
     int run(String testcaseSpecification) {
         Request request = findRequest(testcaseSpecification);
@@ -31,9 +33,11 @@ class JUnitTest {
                 String method = matcher.group("method");
                 if (method != null) {
                     request = Request.method(clazz, method);
+                    stackStop = clazz.getName() + "." + method;
                 }
                 else {
                     request = Request.aClass(clazz);
+                    stackStop = clazz.getName();
                 }
             }
             catch (ClassNotFoundException ignored) {}
@@ -43,7 +47,7 @@ class JUnitTest {
 
     private int runTestCase(Request request) {
         JUnitCore jUnitCore = new JUnitCore();
-        jUnitCore.addListener(new TestResultFormatter());
+        jUnitCore.addListener(new TestResultFormatter(stackStop));
         return jUnitCore.run(request).wasSuccessful() ? 0 : 1;
     }
 }

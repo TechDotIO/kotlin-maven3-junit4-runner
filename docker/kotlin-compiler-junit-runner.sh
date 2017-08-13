@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "TECHIO> terminal"
+#echo "TECHIO> terminal"
 # Can be invoked as:
 #       xxx.sh SOURCE_DIR TestClass
 #       xxx.sh SOURCE_DIR TestClass#testMethod
@@ -37,7 +37,5 @@ compilationExitCode=$?
 if [ $compilationExitCode -eq 0 ]; then
     java -cp "${WORKSPACE_DIR}:$classpath:/opt/techio/junit-runner/junit-runner.jar" io.tech.runner.junit.JUnitTestListRunner $1
 else
-    sleep 1000
     exit $compilationExitCode
 fi
-sleep 1000
