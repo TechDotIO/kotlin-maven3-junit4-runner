@@ -2,6 +2,7 @@ package io.tech.runner.junit;
 
 import java.io.BufferedOutputStream;
 import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
 
 import org.junit.runner.notification.Failure;
 import org.junit.runner.notification.RunListener;
@@ -35,11 +36,9 @@ public class TestResultFormatter extends RunListener {
             }
         }
         
-        PrintStream ps = new PrintStream(new BufferedOutputStream(System.err));
-        
         for (int i = 0, il = stackLines.length; i < il; i++) {
             if (i < excludeStart || i > excludeStop) {
-                ps.print(stackLines[i]);
+                System.err.println(stackLines[i]);
             }
         }
     }
