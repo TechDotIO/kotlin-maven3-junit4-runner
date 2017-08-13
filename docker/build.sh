@@ -21,14 +21,14 @@ find ${SRC_DIR} -name pom.xml -print0 |
         mkdir -p "${current_target_dir}"
         cd "${current_src_dir}"
         # Build the project: create all the jar files
-        mvn -Dmaven.artifact.threads=10 clean install jar:test-jar -DskipTests
+        mvn -Dmaven.artifact.threads=10 clean install jar:test-jar -DskipTests dependency:build-classpath -Dmdep.outputFile="${current_target_dir}/classpath"
         # Copy the jar files into the target directory
         find "${current_src_dir}" -name "*.jar" -print0 |
         while IFS= read -r -d $'\0' jar_file; do
             cp "${jar_file}" "${current_target_dir}"
             done
         # Build classpath
-        mvn -Dmaven.artifact.threads=10 dependency:build-classpath -Dmdep.outputFile="${current_target_dir}/classpath"
+#        mvn -Dmaven.artifact.threads=10 dependency:build-classpath -Dmdep.outputFile="${current_target_dir}/classpath"
         # Trick to prevent read from exiting with status code 1
         cat >> "${current_target_dir}/classpath" << EOF
 
