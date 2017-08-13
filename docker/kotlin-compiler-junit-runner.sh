@@ -25,7 +25,7 @@ fi
 
 cd "${SOURCE_DIR}" || { echo "Could not find directory ${SOURCE_DIR}";exit 1; }
 
-classpath=$(find "${JARS_DIR}" -path '*.jar' -print0 | tr '\0' ',')
+classpath=$(find "${JARS_DIR}" -path '*.jar' -print0 | tr '\0' ':')
 
 find * -name "*.kt" -print0 | xargs -0 /opt/techio/k2/K2JVMCompiler org.jetbrains.kotlin.cli.jvm.K2JVMCompiler -no-stdlib -jdk-home /docker-java-home -cp "$classpath" -d "${WORKSPACE_DIR}"
 compilationExitCode=$?
@@ -33,6 +33,7 @@ compilationExitCode=$?
 if [ $compilationExitCode -eq 0 ]; then
     java -cp "${WORKSPACE_DIR}:$classpath:/opt/techio/junit-runner/junit-runner.jar" io.tech.runner.junit.JUnitTestListRunner $1
 else
+    sleep 1000
     exit $compilationExitCode
 fi
 sleep 1000
