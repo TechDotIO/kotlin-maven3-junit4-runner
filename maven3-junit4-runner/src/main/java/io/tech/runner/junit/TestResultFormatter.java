@@ -22,7 +22,7 @@ public class TestResultFormatter extends RunListener {
         int excludeStart = stackLines.length;
         int excludeStop = stackLines.length;
         
-        for (int i = 0, il = stackLines.length; i < il; i++) {
+        for (int i = stackLines.length; i-->0;) {
             if (stackLines[i].contains(stackStop)) {
                 excludeStart = i + 1;
                 break;
