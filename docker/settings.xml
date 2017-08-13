@@ -1,4 +1,5 @@
 <settings>
+    <localRepository>/build/.m2/repository</localRepository>
     <mirrors>
         <mirror>
             <!--This sends everything else to /public -->
