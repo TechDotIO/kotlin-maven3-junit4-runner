@@ -17,9 +17,11 @@ mkdir -p "${WORKSPACE_DIR}"
 SOURCE_DIR=$(pwd)
 JARS_DIR=${BUILD_DIR}
 
+shopt -s extglob
+
 if [ "$#" == "2" ]; then
     sub_dir_dirty="$1"
-    sub_dir="${sub_dir_dirty//+([^[:alnum:]_-\.])/_}"
+    sub_dir="${sub_dir_dirty//+([^[:alnum:]_-\.\/])/_}"
     SOURCE_DIR="$(pwd)/${sub_dir_dirty}"
     JARS_DIR="${BUILD_DIR}/${sub_dir}"
     shift
