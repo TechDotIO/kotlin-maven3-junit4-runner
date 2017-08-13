@@ -13,10 +13,13 @@ mkdir -p "${M2_REP_DIR}"
 
 cd "${SRC_DIR}"
 
+shopt -s extglob
+
 find ${SRC_DIR} -name pom.xml -print0 | 
     while IFS= read -r -d $'\0' line; do 
         current_src_dir=$(dirname "${line}")
-        sub_dir=${current_src_dir#${SRC_DIR}}
+        sub_dir_dirty=${current_src_dir#${SRC_DIR}}
+        sub_dir="${sub_dir_dirty//+([^[:alnum:]_-\.])/_}"
         current_target_dir=${TARGET_DIR}/${sub_dir}
         mkdir -p "${current_target_dir}"
         cd "${current_src_dir}"
