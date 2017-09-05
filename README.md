@@ -57,7 +57,7 @@ class ExampleTest {
 
 **In your lesson**
 ```md
-@[Fix the following code so that the function sum() returns the sum of the two integers]({"stubs": ["src/example.kt"],"command": "ExampleTest#testSum"})
+@[Fix the function sum() to have it return the sum of the two integers passed as arguments]({"stubs": ["src/example.kt"],"command": "ExampleTest#testSum"})
 ```
 
 **Notes**
