@@ -28,7 +28,7 @@ To use this runner for your playground, edit the `techio.yml` file and add the f
             └── exampleTest.kt     # Your JUnitTest Class
 ```
 
-**In your kotlin project:**
+**In your kotlin project**
 
 *example.kt*
 ```kotlin
@@ -55,7 +55,7 @@ class ExampleTest {
 }
 ```
 
-**In your lesson:**
+**In your lesson**
 ```md
 @[Fix the following code so that the function sum() returns the sum of the two integers]({"stubs": ["src/example.kt"],"command": "ExampleTest#testSum"})
 ```
