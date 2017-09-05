@@ -61,5 +61,5 @@ class ExampleTest {
 ```
 
 **Notes**
-1. If your stub does not compile, just put it outside of the source directory, for example in a stub/ directory at the root of your project.
+1. If your stub does not compile, just put it outside of the source directory, for example in a `stub/` directory at the root of your project.
 2. The test is executed in the context of the maven project located at the root of your playground project. If you have separate maven projects and would like to execute a test in the context of one of them you can specify the directory of this project as the first argument of the `command` attribute: `"command": "snippets/subproject ExampleTest#testSum"`
