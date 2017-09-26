@@ -6,6 +6,10 @@ LABEL maintainer <coders@tech.io>
 
 # Install K2JVMCompiler
 ADD docker/k2.tar.gz /opt/techio/
+RUN wget https://github.com/JetBrains/kotlin/releases/download/v1.1.50/kotlin-compiler-1.1.50.zip -O /opt/kotlinc.zip \
+  && unzip /opt/kotlinc.zip -d /opt \
+  && rm -f /opt/kotlinc.zip \
+  && (cd /opt/techio/k2 ; find ../../kotlinc/lib -type f -exec ln -s {} \;)
 #RUN gunzip -c /opt/techio/k2.tar.gz | tar xvC /opt/techio \
 #  && rm /opt/techio/k2.tar.gz
 
