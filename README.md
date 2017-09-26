@@ -8,7 +8,7 @@ At each play, it compiles the user's answer using an optmized version of `kotlin
 
 To use this runner for your playground, edit the `techio.yml` file and add the following lines to your project:
 
-    runner: techio/kotlin-maven3-junit4-runner:1.0.5-kotlin-1.1.4
+    runner: techio/kotlin-maven3-junit4-runner:1.0.6-kotlin-1.1.50
 
 ## Example
 
